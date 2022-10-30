@@ -11,22 +11,10 @@ pipeline {
             }
         }
           
-  
-	  stage('Build new image') {
-		    steps{
-			    withDockerRegistry([credentialsId: "docker-credentials", url: ""]) {
-			    sh "docker build -t aous1/cicd_front_app_facture ."
-			    
-		    }
-		    }
-    }
-	  stage('Push new image') {
-			steps{
-		withDockerRegistry([credentialsId: "docker-credentials", url: ""]) {
-  		sh "docker push aous1/cicd_front_app_facture"
-	}
+    stage('build ansible') {
+			steps{     
+          sh "ansible-playbook /home/ansible/Desktop/Myapp/liv/ansible/build.yml -i /home/ansible/Desktop/Myapp/liv/ansible/inventory/host.yml "
 			}
-		}
-  
+      }
 }
 }
