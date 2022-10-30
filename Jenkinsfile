@@ -15,7 +15,7 @@ pipeline {
 	  stage('Build new image') {
 		    steps{
 			    withDockerRegistry([credentialsId: "docker-credentials", url: ""]) {
-			    sh "docker build -t aous1/cicd_front_app_facture ."
+			    sh "docker build -t aous1/aous_liv_front:$BUILD_NUMBER ."
 			    
 		    }
 		    }
@@ -23,10 +23,17 @@ pipeline {
 	  stage('Push new image') {
 			steps{
 		withDockerRegistry([credentialsId: "docker-credentials", url: ""]) {
-  		sh "docker push aous1/cicd_front_app_facture"
+  		sh "docker push aous1/aous_liv_front:$BUILD_NUMBER"
 	}
 			}
 		}
-  
+    stage('ansible playbook') {
+			steps{
+        scripts{
+          sh "ansible-playbook /home/ansible/desktop/Myapp/ansible/build.yml -i /home/ansible/desktop/Myapp/ansible/inventory/host.yml"
+        }
+			}
+      }
+
 }
 }
