@@ -5,7 +5,7 @@ pipeline {
         stage('Pull GIT') {
             steps {
                 echo 'Pulling...';
-                  git branch: 'feature_facture',
+                  git branch: 'main',
                   url : 'https://github.com/chamsBLT/ci_project-Angular.git',
                   credentialsId: 'token';
             }
