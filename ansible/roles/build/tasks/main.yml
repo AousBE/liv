@@ -1,4 +1,6 @@
 ---
 # tasks file for build
+- name: install app
+  shell: npm install
 - name: build app
-  shell: ng build --prod
+  shell: ng build --prod 
