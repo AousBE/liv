@@ -11,29 +11,12 @@ pipeline {
             }
         }
           
-  
-	  stage('Build new image') {
-		    steps{
-			    withDockerRegistry([credentialsId: "docker-credentials", url: ""]) {
-			    sh "docker build -t aous1/aous_liv_front:$BUILD_NUMBER ."
-			    
-		    }
-		    }
-    }
-	  stage('Push new image') {
-			steps{
-		withDockerRegistry([credentialsId: "docker-credentials", url: ""]) {
-  		sh "docker push aous1/aous_liv_front:$BUILD_NUMBER"
-	}
-			}
-		}
-    stage('ansible playbook') {
+    stage('build ansible') {
 			steps{
         scripts{
-          sh "ansible-playbook /home/ansible/desktop/Myapp/ansible/build.yml -i /home/ansible/desktop/Myapp/ansible/inventory/host.yml"
+          sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.yml"
         }
 			}
       }
-
 }
 }
