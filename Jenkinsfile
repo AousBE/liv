@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Pulling...';
                   git branch: 'main',
-                  url : 'https://github.com/chamsBLT/ci_project-Angular.git',
+                  url : 'https://github.com/AousBE/liv.git',
                   credentialsId: 'token';
             }
         }
