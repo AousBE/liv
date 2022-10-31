@@ -2,9 +2,9 @@
 # tasks file for docker
 - name: create image docker 
   docker_image:
-    name: liveraison_c
+    name: livraison_c
     build:
-     path: /var/lib/jenkins/workspace/liveraison_c
+     path: /var/lib/jenkins/workspace/livraison_c
      pull: no		
     source: build
     state: present
@@ -12,7 +12,7 @@
 - name: run container docker
   docker_container:
     name: aous_lc
-    image: liveraison_c:latest
+    image: livraison_c:latest
     state: started
     recreate: true
     ports:
