@@ -3,7 +3,7 @@
 - name: tag and push to docker hub
   docker_image:
     name: livraison_c
-    repository: aous1/livraison_c
+    repository: livraison_c
     tag: latest
     push: yes
 
