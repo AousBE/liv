@@ -26,12 +26,5 @@ pipeline {
           sh "ansible-playbook ansible/docker-registry.yml -i ansible/inventory/host.yml "
 			}
       }
-   stage('Deploying App to Kubernetes') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "deploymentservice.yml", credentialsId: 'kubernetes')
-        }
-      }
-    }
 }
 }
