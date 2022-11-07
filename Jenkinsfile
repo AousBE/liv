@@ -10,15 +10,7 @@ pipeline {
                   credentialsId: 'token';
             }
         }
-    	    stage('Build new image') {
-		    steps{
-			    withDockerRegistry([credentialsId: "docker", url: ""]) {
- 		            //sh 'printenv'
-			    sh "docker build -t aous1/livraison_c:latest ."
-			    
-		    }
-		    }
-    }
+
           
     stage('build ansible') {
 			steps{     
