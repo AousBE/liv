@@ -12,7 +12,7 @@ pipeline {
         }
     	    stage('Build new image') {
 		    steps{
-			    withDockerRegistry([credentialsId: "docker-credentials", url: ""]) {
+			    withDockerRegistry([credentialsId: "docker", url: ""]) {
  		            //sh 'printenv'
 			    sh "docker build -t aous1/livraison_c:latest ."
 			    
