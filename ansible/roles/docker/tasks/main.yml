@@ -12,7 +12,7 @@
 - name: run container docker
   docker_container:
     name: aous_lc
-    image: aous1/livraison_c:latest
+    image: aous1/livraison_c:93
     state: started
     recreate: true
     ports:
