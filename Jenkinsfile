@@ -14,7 +14,7 @@ pipeline {
 		    steps{
 			    withDockerRegistry([credentialsId: "docker", url: ""]) {
  		            //sh 'printenv'
-			    sh "docker build -t aous1/livraison_c:latest"
+			    sh "docker build -t aous1/livraison_c:latest ."
 			    
 		    }
 		    }
