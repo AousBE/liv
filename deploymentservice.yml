@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: livraison_c:latest
+        image: aous1/livraison_c:latest
         ports:
         - containerPort: 80
         
