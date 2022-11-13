@@ -18,23 +18,22 @@ spec:
       - name: nodeserver
         image: aous1/livraison_c:latest
         ports:
-        - containerPort: 88
+        - containerPort: 80
         
         
 ---
 
+---
 apiVersion: v1
 kind: Service
 metadata:
-   name: node-service
-   labels:
-     app: node-service
-      
+  name: service
 spec:
-   type: NodePort
-   ports:
-     - protocol: TCP
-       port: 88
-       targetPort: 88
-   selector:
-     app: node-pod
+  type: NodePort
+  selector:
+    app: nodeapp
+  ports:
+  - protocol: TCP
+    port: 4200
+    targetPort: 80
+    nodePort: 30300
