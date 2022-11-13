@@ -1,26 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
-  labels:
-    app: nodeapp
+  name: nodeapp
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: nodeapp
+  replicas: 1
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: nodeapp
     spec:
       containers:
-      - name: nodeserver
-        image: aous1/livraison_c:latest
-        ports:
-        - containerPort: 80
-        
-        
+        - name: cd-project
+          image: aous1/livraison_c:latest
+          ports:
+            - containerPort: 80
 ---
 
 ---
