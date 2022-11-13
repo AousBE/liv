@@ -26,13 +26,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-service
+   name: node-service
+   labels:
+     app: node-service
+      
 spec:
-  selector:
-    app: nodeapp 
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 5000
-    targetPort: 88
-    nodePort: 31110
+   type: LoadBalancer
+   ports:
+     - protocol: TCP
+       port: 3000
+       targetPort: 88
+   selector:
+     app: node-pod
