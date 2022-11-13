@@ -13,7 +13,7 @@ spec:
         app: nodeapp
     spec:
       containers:
-        - name: cd-project
+        - name: nodeapp
           image: aous1/livraison_c:latest
           ports:
             - containerPort: 80
