@@ -31,10 +31,10 @@ metadata:
      app: node-service
       
 spec:
-   type: LoadBalancer
+   type: NodePort
    ports:
      - protocol: TCP
-       port: 3000
+       port: 31000
        targetPort: 88
    selector:
      app: node-pod
